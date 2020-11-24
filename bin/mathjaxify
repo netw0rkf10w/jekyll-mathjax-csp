@@ -94,7 +94,10 @@ AssistiveMmlHandler(RegisterHTMLHandler(adaptor));
 //
 //  Create input and output jax and a document using them on the content from the HTML file
 //
-const tex = new TeX({packages: AllPackages, inlineMath: [['$', '$'], ['\\(', '\\)']]});
+const tex = new TeX({packages: AllPackages,
+                     inlineMath: [['$', '$'], ['\\(', '\\)']],
+                     displayMath: [['$$','$$'], ["\\[","\\]"] ],
+                     tags: 'ams',});
 const svg = new SVG({fontCache: 'global', exFactor: argv.ex / argv.em});
 const html = mathjax.document(htmlfile, {InputJax: tex, OutputJax: svg});
 
